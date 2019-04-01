@@ -37,6 +37,12 @@ type Message interface {
 	Ack()
 }
 
+type TestMessage interface {
+	Message
+
+	Conn() net.Conn
+}
+
 // Consumer receives messages from a connection.
 type Consumer interface {
 	// Message waits for and returns the next message received.

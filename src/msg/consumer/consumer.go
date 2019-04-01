@@ -233,6 +233,10 @@ func (m *message) Bytes() []byte {
 	return m.Value
 }
 
+func (m *message) Conn() net.Conn {
+	return m.c.conn
+}
+
 func (m *message) Ack() {
 	m.c.tryAck(m.Metadata)
 	if m.mPool != nil {
